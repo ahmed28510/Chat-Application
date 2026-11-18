@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="vh-100 d-flex flex-column bg-light">
+
+  <!-- Navbar -->
+  <nav class="navbar bg-primary px-3" data-bs-theme="dark">
+    <span class="navbar-brand fw-bold mb-0">💬 ChatApp</span>
+    <div class="d-flex align-items-center gap-3">
+      <span id="meName" class="text-white d-none d-md-inline"></span>
+      <button id="logoutBtn" class="btn btn-light text-primary btn-sm">Logout</button>
+    </div>
+  </nav>
+
+  <div class="d-flex flex-grow-1 overflow-hidden">
+
+    <!-- Sidebar: users come from the database -->
+    <aside class="col-3 col-lg-2 bg-white border-end overflow-auto flex-shrink-0">
+      <h2 class="h6 fw-bold m-0 p-3 border-bottom">Users</h2>
+      <div class="list-group list-group-flush" id="usersList"></div>
+    </aside>
+
+    <!-- Chat window -->
+    <section class="flex-grow-1 d-flex flex-column overflow-hidden">
+
+      <div class="d-flex justify-content-between align-items-center bg-white border-bottom px-3 py-2">
+        <span class="fs-5 fw-semibold" id="chatUserName">Select a user</span>
+        <span class="badge rounded-pill d-none" id="chatUserStatus"></span>
+      </div>
+
+      <div class="flex-grow-1 overflow-auto p-3 d-flex flex-column gap-2" id="messages">
+        <div class="text-muted small m-auto placeholder-text">Select a user to start chatting</div>
+      </div>
+
+      <form class="d-flex gap-2 p-3 bg-white border-top" id="chatForm">
+        <input type="text" class="form-control rounded-pill px-3" id="msgInput" placeholder="Type a message..." autocomplete="off" />
+        <button type="submit" class="btn btn-primary rounded-pill px-4">Send</button>
+      </form>
+
+    </section>
+  </div>
+
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>
